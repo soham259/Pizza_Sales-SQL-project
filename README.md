@@ -2,6 +2,13 @@
 
 This project provides SQL queries to analyze pizza sales data using a relational database. The queries are grouped into three levels: **Basic**, **Intermediate**, and **Advanced**.
 
+## 🗃️ Assumed Database Schema
+
+- **orders**(`order_id`, `date`, `time`)
+- **order_details**(`order_details_id`, `order_id`, `pizza_id`, `quantity`)
+- **pizzas**(`pizza_id`, `pizza_type_id`, `size`, `price`)
+- **pizza_types**(`pizza_type_id`, `name`, `category`, `ingredients`)
+
 ## ✅ Basic Queries
 
 1. **Retrieve the total number of orders placed**
