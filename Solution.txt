@@ -71,12 +71,12 @@ SELECT AVG(quantity) FROM (
 ) AS avg_quantity;
 
 -- 5. Top 3 most ordered pizza types based on revenue
-SELECT pt.name, ROUND(SUM(od.quantity * p.price), 2) AS revenue
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id
-JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
-GROUP BY pt.name
-ORDER BY revenue DESC
+SELECT SUM(pizzas.price * order_details.quantity) AS price, pizza_types.name
+FROM pizzas
+JOIN pizza_types ON pizza_types.pizza_type_id = pizzas.pizza_type_id
+JOIN order_details ON pizzas.pizza_id = order_details.pizza_id
+GROUP BY pizza_types.name
+ORDER BY price DESC
 LIMIT 3;
 
 
